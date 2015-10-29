@@ -61,3 +61,20 @@ fullOutcomeColumn <- function( outcome ) {
     # message("Using column ", foc)
     foc
 }
+
+normalizeIndex <- function( oocmPart, num ) {
+    # Number of hospitals in subset:
+    numHosp <- nrow(oocmPart)
+    rankIndex <- num
+    if (num == "best") {
+        # First position
+        rankIndex <- 1
+    } else if (num == "worst") {
+        # Last position
+        rankIndex <- numHosp
+    } else if (num > numHosp |  num < 1) {
+        # out of bounds
+        return(NA)
+    }
+    rankIndex
+}
