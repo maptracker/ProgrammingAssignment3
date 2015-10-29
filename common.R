@@ -3,7 +3,7 @@
 
 # These are functions common to all three sub-assignments
 
-readOoCM <- function() {
+readOoCM <- function( file = "outcome-of-care-measures.csv") {
     # Build the column classes
     # These are names and addresses in the first columns:
     addressCols <- rep("character", 10)
@@ -15,7 +15,7 @@ readOoCM <- function() {
     dataCols <- rep(dataSet, 6)
     allCols <- c(addressCols, dataCols)
 
-    oocm <- read.csv("outcome-of-care-measures.csv",
+    oocm <- read.csv(file,
              na.strings = c("Not Available"),
              quote = "\"",
              colClasses = "character" )
